@@ -27,6 +27,15 @@ jobs:
           mkdir -p out
           npm run build
           touch out/.nojekyll
+          echo "Listing build output contents:"
+          ls -la out/
+          
+      - name: Debug Info
+        run: |
+          echo "Checking for index.html:"
+          find out -name "index.html"
+          echo "Checking directory structure:"
+          tree out || ls -R out
           
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
