@@ -24,12 +24,10 @@ jobs:
         
       - name: Build
         run: |
-          rm -rf out
           npm run build
-          cp -r out/* .
-          touch .nojekyll
-          echo "Listing root contents:"
-          ls -la
+          touch out/.nojekyll
+          echo "Listing build output contents:"
+          ls -la out/
           
       - name: Debug Info
         run: |
@@ -41,8 +39,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .
+          folder: out
           branch: gh-pages
           clean: true
-          clean-exclude: |
-            .nojekyll
