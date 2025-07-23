@@ -5,10 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export",
-    "deploy": "next build && next export && touch out/.nojekyll && gh-pages -d out"
+    "build": "next build && next export && touch out/.nojekyll",
+    "start": "next start"
   },
   "keywords": [
     "blog",
